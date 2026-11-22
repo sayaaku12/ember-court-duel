@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ember Court — Duel of the Lantern Spirits</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="table">
+  <header id="topbar">
+    <div id="game-title">🏮 EMBER COURT</div>
+    <div id="turn-banner">Duel of the Lantern Spirits</div>
+    <button id="mute-btn" title="Sound on/off">🔊</button>
+  </header>
+
+  <!-- Opponent row: portrait, life, mana, face-down hand -->
+  <section id="foe-area" class="side">
+    <div class="hero" id="foe-hero">
+      <div class="portrait" id="foe-portrait">🦉</div>
+      <div class="hero-info">
+        <div class="hero-name">Mistral the Owl Sage</div>
+        <div class="life"><span class="heart">❤</span> <span id="foe-life">30</span> <span class="life-max">/ 30</span></div>
+        <div class="mana" id="foe-mana"></div>
+      </div>
+    </div>
+    <div id="foe-hand" class="hand" title="Opponent's hand"></div>
+  </section>
+
+  <!-- Opponent board -->
+  <div id="foe-board" class="board"></div>
+
+  <div id="midline">
+    <div id="log">Welcome to Ember Court. Play a card, then end your turn.</div>
+    <button id="end-turn">END TURN ⏎</button>
+  </div>
+
+  <!-- Player board -->
+  <div id="my-board" class="board"></div>
+
+  <!-- Player row: portrait, life, mana, face-up hand -->
+  <section id="my-area" class="side">
+    <div class="hero" id="my-hero">
+      <div class="portrait" id="my-portrait">🦊</div>
+      <div class="hero-info">
+        <div class="hero-name">You — Ember Fox</div>
+        <div class="life"><span class="heart">❤</span> <span id="my-life">30</span> <span class="life-max">/ 30</span></div>
+        <div class="mana" id="my-mana"></div>
+      </div>
+    </div>
+    <div id="my-hand" class="hand"></div>
+  </section>
+
+  <footer id="helpbar">
+    <span><b>1–7</b> play card</span><span><b>Space</b> end turn</span>
+    <span><b>Click</b> a card, then a target</span><span><b>Enter</b> start / play again</span>
+  </footer>
+</div>
+
+<!-- Title screen -->
+<div id="title-screen" class="overlay">
+  <div class="overlay-panel">
+    <div class="title-emblem">🏮</div>
+    <h1>EMBER COURT</h1>
+    <h2>Duel of the Lantern Spirits</h2>
+    <p class="tagline">Four elements. One lantern-lit table.<br>Outwit the Owl Sage — bring his life to zero before yours falls.</p>
+    <div class="rules">
+      <div><span class="suit ember">🔥 Ember</span> beats <span class="suit thorn">🌿 Thorn</span></div>
+      <div><span class="suit thorn">🌿 Thorn</span> beats <span class="suit tide">💧 Tide</span></div>
+      <div><span class="suit tide">💧 Tide</span> beats <span class="suit ember">🔥 Ember</span></div>
+      <div><span class="suit stone">🗿 Stone</span> stands alone — no weakness, no fear</div>
+      <div class="rules-note">A minion strikes the foe across from it — or the hero, if none stands there.<br>Winning the element duel deals +2 damage. Mana grows every turn.</div>
+    </div>
+    <button id="start-btn">LIGHT THE LANTERNS ▶</button>
+    <p class="keys-hint">Keyboard: 1–7 play a card · Space ends your turn · Mouse works too</p>
+  </div>
+</div>
+
+<!-- Win / loss screen -->
+<div id="end-screen" class="overlay hidden">
+  <div class="overlay-panel">
+    <div class="title-emblem" id="end-emblem">🏆</div>
+    <h1 id="end-title">VICTORY</h1>
+    <h2 id="end-sub">The Owl Sage bows to the Ember Fox.</h2>
+    <p class="tagline" id="end-detail"></p>
+    <button id="again-btn">PLAY AGAIN ↻</button>
+  </div>
+</div>
+
+<div id="floaters"></div>
+<script src="cards.js"></script>
+<script src="ai.js"></script>
+<script src="game.js"></script>
+<script src="render.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
